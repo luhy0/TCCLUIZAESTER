@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardiões do Cerrado</title>
+
+  <!-- Google Fonts: tipografia moderna para o projeto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAVBAR: menu superior do site -->
+  <header class="navbar">
+    <nav class="nav-container" aria-label="Menu principal">
+      <a class="logo" href="#inicio" aria-label="Página inicial Guardiões do Cerrado">
+        <span class="logo-icon" aria-hidden="true">🌿</span>
+        Guardiões do Cerrado
+      </a>
+
+      <!-- Botão hambúrguer exibido em telas menores -->
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#especies">Espécies</a></li>
+        <li><a href="#ranking">Ranking</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO: área principal com imagem, overlay e chamada para ação -->
+    <section class="hero" id="inicio">
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Explore • Aprenda • Preserve</p>
+        <h1>Guardiões do Cerrado</h1>
+        <p class="subtitle">Aprenda, jogue e ajude a preservar o Cerrado</p>
+
+        <!-- Card explicativo em formato de balão -->
+        <article class="mission-card" aria-labelledby="mission-title">
+          <h2 id="mission-title">Sua missão começa aqui</h2>
+          <p>
+            Complete missões, responda quizzes e descubra espécies do Cerrado
+            enquanto protege o meio ambiente.
+          </p>
+          <a class="primary-button" href="#quiz">Começar</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
