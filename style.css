@@ -153,13 +153,10 @@ a {
   padding: 132px 20px 64px;
   overflow: hidden;
   text-align: center;
-  /*
-    Imagem real do Cerrado goiano: vista da Chapada dos Veadeiros, Goiás.
-    Fonte: Wikimedia Commons (Artur Warchavchik / CC BY-SA 3.0).
-  */
+  /* Imagem de paisagem natural aplicada como fundo principal do hero. */
   background:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Cerrado_-_Chapada_dos_Veadeiros.JPG/2560px-Cerrado_-_Chapada_dos_Veadeiros.JPG");
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.pexels.com/photos/13232134/pexels-photo-13232134.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
