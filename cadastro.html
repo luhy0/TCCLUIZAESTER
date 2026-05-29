@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | Guardiões do Cerrado</title>
+  <meta name="description" content="Crie sua conta no Guardiões do Cerrado e participe de quizzes, missões e descobertas ambientais.">
+
+  <!-- Google Fonts: mantém a identidade visual moderna do site. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-wrapper">
+    <!-- Card central do formulário de cadastro. -->
+    <section class="auth-card" aria-labelledby="cadastro-title">
+      <a class="auth-brand" href="index.html" aria-label="Voltar para a página inicial">
+        <span class="brand-icon" aria-hidden="true">🌿</span>
+        <span>Guardiões do Cerrado</span>
+      </a>
+
+      <div class="auth-heading">
+        <p class="auth-kicker">Faça parte da missão</p>
+        <h1 id="cadastro-title">Criar conta</h1>
+        <p>Cadastre-se para responder quizzes e descobrir espécies do Cerrado.</p>
+      </div>
+
+      <form class="auth-form" id="cadastro-form" novalidate>
+        <label for="cadastro-name">Nome</label>
+        <input type="text" id="cadastro-name" name="nome" placeholder="Seu nome" autocomplete="name" required>
+
+        <label for="cadastro-email">Email</label>
+        <input type="email" id="cadastro-email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+
+        <label for="cadastro-password">Senha</label>
+        <input type="password" id="cadastro-password" name="senha" placeholder="Crie uma senha" autocomplete="new-password" required>
+
+        <p class="form-message" id="cadastro-message" aria-live="polite"></p>
+
+        <button class="auth-button" type="submit">Criar conta</button>
+        <a class="auth-link-button" href="login.html">Já tenho conta</a>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
