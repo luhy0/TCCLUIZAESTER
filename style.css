@@ -73,6 +73,39 @@ a {
   background: rgba(139, 195, 74, 0.24);
 }
 
+.about-link {
+  position: relative;
+  padding: 10px 0;
+  font-weight: 600;
+  opacity: 0.92;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.about-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--light-green);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.about-link:hover,
+.about-link:focus-visible {
+  color: var(--lighter-green);
+  opacity: 1;
+}
+
+.about-link:hover::after,
+.about-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
 /* HERO */
 .hero {
   position: relative;
@@ -210,6 +243,10 @@ a {
   .logo-icon {
     width: 34px;
     height: 34px;
+  }
+
+  .about-link {
+    font-size: 0.95rem;
   }
 
   .mission-card {
