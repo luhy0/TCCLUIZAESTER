@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Guardiões do Cerrado</title>
+  <meta name="description" content="Entre na sua conta do Guardiões do Cerrado para continuar suas missões de preservação.">
+
+  <!-- Google Fonts: mantém a identidade visual moderna do site. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-wrapper">
+    <!-- Card central do formulário de login. -->
+    <section class="auth-card" aria-labelledby="login-title">
+      <a class="auth-brand" href="index.html" aria-label="Voltar para a página inicial">
+        <span class="brand-icon" aria-hidden="true">🌿</span>
+        <span>Guardiões do Cerrado</span>
+      </a>
+
+      <div class="auth-heading">
+        <p class="auth-kicker">Bem-vindo de volta</p>
+        <h1 id="login-title">Entrar</h1>
+        <p>Continue aprendendo sobre o Cerrado e protegendo suas espécies.</p>
+      </div>
+
+      <form class="auth-form" id="login-form" novalidate>
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+
+        <label for="login-password">Senha</label>
+        <input type="password" id="login-password" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+
+        <p class="form-message" id="login-message" aria-live="polite"></p>
+
+        <button class="auth-button" type="submit">Entrar</button>
+        <a class="auth-link-button" href="cadastro.html">Criar conta</a>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

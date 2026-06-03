@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardiões do Cerrado | Início</title>
+  <meta name="description" content="Página inicial do Guardiões do Cerrado, uma experiência educativa com quizzes, missões e espécies do bioma Cerrado.">
+
+  <!-- Google Fonts: fonte moderna para uma interface mais profissional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAVBAR: área superior com logo/nome do projeto e navegação principal -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Menu principal">
+      <a class="brand" href="index.html" aria-label="Página inicial Guardiões do Cerrado">
+        <span class="brand-icon" aria-hidden="true">🌿</span>
+        <span>Guardiões do Cerrado</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="main-menu">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#especies">Espécies</a></li>
+        <li><a href="#ranking">Ranking</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO: seção principal com imagem de fundo do Cerrado e chamada para ação -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="hero-tag">Educação ambiental gamificada</p>
+        <h1 id="hero-title">Guardiões do Cerrado</h1>
+        <p class="hero-subtitle">Aprenda, jogue e ajude a preservar o Cerrado</p>
+
+        <!-- Card explicativo em formato de balão, com missão do site -->
+        <article class="mission-card" aria-label="Missão do site">
+          <p>
+            Complete missões, responda quizzes e descubra espécies do Cerrado
+            enquanto protege o meio ambiente.
+          </p>
+        </article>
+
+        <div class="hero-actions" aria-label="Ações para entrar ou criar conta">
+          <a class="primary-button js-nav-button" href="./login.html" data-destination="./login.html">Começar</a>
+          <a class="secondary-button js-nav-button" href="./cadastro.html" data-destination="./cadastro.html">Criar conta</a>
+        </div>
+      </div>
+
+      <!-- Crédito da imagem de fundo: exigido pela licença Creative Commons da foto. -->
+      <p class="photo-credit">
+        Foto: <a href="https://commons.wikimedia.org/wiki/File:Cerrado_landscape.jpg" target="_blank" rel="noopener noreferrer">Gil df / Wikimedia Commons</a>
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
