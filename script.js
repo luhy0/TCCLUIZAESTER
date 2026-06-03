@@ -3,7 +3,6 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
 
-const STORAGE_KEY = "guardioesUsuarios";
 const SESSION_KEY = "guardiaoLogado";
 
 function closeMenu() {
@@ -41,14 +40,6 @@ if (menuToggle && navMenu) {
   });
 }
 
-function getUsers() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-}
-
-function saveUsers(users) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
-}
-
 function showMessage(element, message, type = "error") {
   if (!element) return;
 
@@ -56,13 +47,32 @@ function showMessage(element, message, type = "error") {
   element.classList.toggle("success", type === "success");
 }
 
-// Cadastro simples: salva o usuário no localStorage do navegador.
+async function sendAuthRequest(url, data) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const result = await response.json();
+
+  if (!response.ok) {
+    const error = new Error(result.message || "Não foi possível concluir a operação.");
+    error.status = response.status;
+    throw error;
+  }
+
+  return result;
+}
+
+// Cadastro conectado ao backend Firebase: envia os dados para /api/cadastro.
 const cadastroForm = document.querySelector("#cadastro-form");
 
 if (cadastroForm) {
   const cadastroMessage = document.querySelector("#cadastro-message");
 
-  cadastroForm.addEventListener("submit", (event) => {
+  cadastroForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const name = cadastroForm.nome.value.trim();
@@ -74,44 +84,48 @@ if (cadastroForm) {
       return;
     }
 
-    const users = getUsers();
-    const emailAlreadyExists = users.some((user) => user.email === email);
+    try {
+      showMessage(cadastroMessage, "Criando sua conta...", "success");
+      await sendAuthRequest("/api/cadastro", { name, email, password });
+      showMessage(cadastroMessage, "Conta criada com sucesso! Redirecionando...", "success");
 
-    if (emailAlreadyExists) {
-      showMessage(cadastroMessage, "Este email já está cadastrado.");
-      return;
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 900);
+    } catch (error) {
+      showMessage(cadastroMessage, error.message);
     }
-
-    users.push({ name, email, password });
-    saveUsers(users);
-    showMessage(cadastroMessage, "Conta criada com sucesso! Redirecionando...", "success");
-
-    setTimeout(() => {
-      window.location.href = "login.html";
-    }, 900);
   });
 }
 
-// Login simples: verifica email e senha salvos antes de liberar a página inicial.
+// Login conectado ao backend Firebase: valida email e senha em /api/login.
 const loginForm = document.querySelector("#login-form");
 
 if (loginForm) {
   const loginMessage = document.querySelector("#login-message");
 
-  loginForm.addEventListener("submit", (event) => {
+  loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const email = loginForm.email.value.trim().toLowerCase();
     const password = loginForm.senha.value.trim();
-    const users = getUsers();
-    const validUser = users.find((user) => user.email === email && user.password === password);
 
-    if (!validUser) {
+    if (!email || !password) {
       showMessage(loginMessage, "Email ou senha inválidos");
       return;
     }
 
-    localStorage.setItem(SESSION_KEY, JSON.stringify({ name: validUser.name, email: validUser.email }));
-    window.location.href = "index.html";
+    try {
+      showMessage(loginMessage, "Verificando seus dados...", "success");
+      const result = await sendAuthRequest("/api/login", { email, password });
+
+      localStorage.setItem(SESSION_KEY, JSON.stringify(result.user));
+      window.location.href = "index.html";
+    } catch (error) {
+      const message = error.status === 400 || error.status === 401
+        ? "Email ou senha inválidos"
+        : error.message;
+      showMessage(loginMessage, message);
+    }
   });
 }

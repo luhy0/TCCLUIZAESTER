@@ -1,0 +1,13 @@
+{
+  "name": "guardioes-do-cerrado",
+  "version": "1.0.0",
+  "description": "Site Guardiões do Cerrado com páginas estáticas e autenticação conectada ao Firebase Admin SDK.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check script.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.4.0"
+  }
+}
