@@ -129,3 +129,17 @@ if (loginForm) {
     }
   });
 }
+
+// Reforça a navegação dos botões principais caso algum ambiente bloqueie o clique padrão do link.
+const navigationButtons = document.querySelectorAll(".js-nav-button[data-destination]");
+
+navigationButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const destination = button.dataset.destination;
+
+    if (!destination) return;
+
+    event.preventDefault();
+    window.location.href = destination;
+  });
+});
